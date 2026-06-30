@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VideoFast — AI口播视频，3分钟出片</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: #0a0f1a; color: #e8ecf1; line-height: 1.6;
+  }
+  .hero {
+    text-align: center; padding: 80px 20px 60px;
+    background: linear-gradient(135deg, #0a1620 0%, #1a1040 50%, #0a1620 100%);
+  }
+  .hero h1 { font-size: 42px; font-weight: 800; margin-bottom: 12px; }
+  .hero h1 span { background: linear-gradient(135deg, #c8a03c, #e8c84c); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  .hero p { font-size: 18px; color: #8892a4; max-width: 500px; margin: 0 auto 24px; }
+  .hero .cta {
+    display: inline-block; background: #c8a03c; color: #0a0f1a;
+    padding: 14px 36px; border-radius: 8px; font-size: 16px; font-weight: 700;
+    text-decoration: none; transition: transform .15s;
+  }
+  .hero .cta:hover { transform: scale(1.05); }
+
+  .templates {
+    max-width: 900px; margin: 0 auto; padding: 40px 20px;
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px;
+  }
+  .tpl-card {
+    background: #141f2e; border-radius: 12px; padding: 24px; border: 1px solid #1e3048;
+    transition: border-color .2s;
+  }
+  .tpl-card:hover { border-color: #c8a03c; }
+  .tpl-card h3 { font-size: 18px; margin-bottom: 8px; }
+  .tpl-card .emoji { font-size: 32px; margin-bottom: 12px; }
+  .tpl-card p { font-size: 14px; color: #8892a4; }
+
+  .form-section {
+    max-width: 600px; margin: 0 auto; padding: 0 20px 60px;
+  }
+  .form-section h2 { text-align: center; font-size: 28px; margin-bottom: 24px; }
+  .form-group { margin-bottom: 16px; }
+  .form-group label { display: block; font-size: 13px; color: #8892a4; margin-bottom: 4px; text-transform: uppercase; letter-spacing: .5px; }
+  .form-group input, .form-group select, .form-group textarea {
+    width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #1e3048;
+    background: #141f2e; color: #e8ecf1; font-size: 15px; outline: none;
+  }
+  .form-group input:focus, .form-group textarea:focus { border-color: #c8a03c; }
+  .form-group textarea { min-height: 80px; resize: vertical; }
+  .submit-btn {
+    width: 100%; padding: 14px; background: #c8a03c; color: #0a0f1a;
+    border: none; border-radius: 8px; font-size: 16px; font-weight: 700; cursor: pointer;
+  }
+  .submit-btn:hover { background: #e8c84c; }
+
+  .pricing {
+    max-width: 700px; margin: 0 auto; padding: 40px 20px 60px;
+  }
+  .pricing h2 { text-align: center; font-size: 28px; margin-bottom: 24px; }
+  .price-cards { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+  .price-card {
+    background: #141f2e; border-radius: 12px; padding: 28px 24px; border: 1px solid #1e3048;
+    flex: 1; min-width: 180px; max-width: 220px; text-align: center;
+  }
+  .price-card.popular { border-color: #c8a03c; }
+  .price-card .price { font-size: 32px; font-weight: 800; margin: 12px 0; }
+  .price-card .price small { font-size: 14px; color: #8892a4; }
+  .price-card ul { list-style: none; font-size: 13px; color: #8892a4; line-height: 2; margin-bottom: 16px; }
+  .price-card .buy {
+    display: block; padding: 10px; border-radius: 6px; font-weight: 600; text-decoration: none;
+    background: #1e3048; color: #e8ecf1; font-size: 14px;
+  }
+  .price-card.popular .buy { background: #c8a03c; color: #0a0f1a; }
+
+  .footer { text-align: center; padding: 40px 20px; color: #4a5568; font-size: 13px; }
+  .toast {
+    position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
+    background: #10b981; color: #fff; padding: 12px 24px; border-radius: 8px;
+    font-weight: 600; display: none; z-index: 100;
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <h1>🎬 <span>VideoFast</span></h1>
+  <p>AI 口播视频生成 — 填文案，选模板，3 分钟出片。<br>不用学剪辑，不用请团队。</p>
+  <a href="#order" class="cta">立即生成 →</a>
+</div>
+
+<div class="templates">
+  <div class="tpl-card">
+    <div class="emoji">🎤</div>
+    <h3>口播干货</h3>
+    <p>痛点+反常识+三步拆解<br>适合知识博主/培训讲师</p>
+  </div>
+  <div class="tpl-card">
+    <div class="emoji">📦</div>
+    <h3>开箱带货</h3>
+    <p>产品展示+效果对比+CTA<br>适合电商卖家/带货达人</p>
+  </div>
+  <div class="tpl-card">
+    <div class="emoji">📊</div>
+    <h3>数据报告</h3>
+    <p>图表动画+结论提炼+指南<br>适合分析师/企业市场部</p>
+  </div>
+</div>
+
+<div class="form-section" id="order">
+  <h2>📝 填写文案，开始生成</h2>
+  <div class="form-group">
+    <label>选择模板</label>
+    <select id="template">
+      <option value="koubo">口播干货</option>
+      <option value="daixian">开箱带货</option>
+      <option value="shuju">数据报告</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label>视频标题 *</label>
+    <input type="text" id="title" placeholder="如：AI写周报只要3分钟" required>
+  </div>
+  <div class="form-group">
+    <label>副标题</label>
+    <input type="text" id="subtitle" placeholder="如：效率提升10倍">
+  </div>
+  <div class="form-group">
+    <label>数据卡片（标签:值, 标签:值）</label>
+    <input type="text" id="cards" placeholder="如：用户:10万, 增速:300%, 时间:3min">
+  </div>
+  <div class="form-group">
+    <label>联系方式（微信/邮箱，用于接收成品）*</label>
+    <input type="text" id="contact" placeholder="微信号或邮箱" required>
+  </div>
+  <button class="submit-btn" onclick="submitOrder()">提交订单 →</button>
+  <p style="text-align:center;color:#8892a4;font-size:12px;margin-top:10px">
+    提交后 30 分钟内发送视频链接到你的联系方式
+  </p>
+</div>
+
+<div class="pricing">
+  <h2>💰 定价</h2>
+  <div class="price-cards">
+    <div class="price-card">
+      <h4>体验</h4>
+      <div class="price">¥9.9<small>/次</small></div>
+      <ul><li>1条视频</li><li>720p带水印</li><li>手动交付</li></ul>
+      <a href="#" class="buy">闲鱼拍下</a>
+    </div>
+    <div class="price-card popular">
+      <h4>包月 ⭐</h4>
+      <div class="price">¥99<small>/月</small></div>
+      <ul><li>30条视频</li><li>1080p无水印</li><li>优先交付</li></ul>
+      <a href="#" class="buy">爱发电订阅</a>
+    </div>
+    <div class="price-card">
+      <h4>Token包</h4>
+      <div class="price">¥99<small>/100次</small></div>
+      <ul><li>不过期</li><li>1080p无水印</li><li>自助渲染</li></ul>
+      <a href="#" class="buy">闲鱼拍下</a>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  © 2026 VideoFast — AI视频生成工具 · video.worldcorner.xyz
+</div>
+
+<div class="toast" id="toast">✅ 订单已提交！</div>
+
+<script>
+async function submitOrder() {
+  const title = document.getElementById('title').value.trim();
+  const contact = document.getElementById('contact').value.trim();
+  if (!title || !contact) { alert('请填写标题和联系方式'); return; }
+
+  const order = {
+    template: document.getElementById('template').value,
+    title: title,
+    subtitle: document.getElementById('subtitle').value.trim(),
+    cards: document.getElementById('cards').value.trim(),
+    contact: contact,
+    time: new Date().toISOString(),
+  };
+
+  // 存入 Supabase（此处用 localStorage 模拟）
+  const orders = JSON.parse(localStorage.getItem('videofast_orders') || '[]');
+  orders.push(order);
+  localStorage.setItem('videofast_orders', JSON.stringify(orders));
+
+  // 显示成功提示
+  const toast = document.getElementById('toast');
+  toast.style.display = 'block';
+  toast.textContent = `✅ 订单已提交！视频将发送至 ${contact}`;
+  setTimeout(() => toast.style.display = 'none', 4000);
+
+  // 清空表单
+  document.getElementById('title').value = '';
+  document.getElementById('cards').value = '';
+  console.log('New order:', order);
+}
+</script>
+</body>
+</html>
