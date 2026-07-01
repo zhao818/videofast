@@ -147,25 +147,29 @@
       <h4>体验</h4>
       <div class="price">¥9.9<small>/次</small></div>
       <ul><li>1条视频</li><li>720p带水印</li><li>手动交付</li></ul>
-      <a href="#" class="buy">闲鱼拍下</a>
+      <!-- TODO: 替换为真实闲鱼链接 -->
+      <a href="#" class="buy" title="前往闲鱼店铺购买">闲鱼拍下</a>
     </div>
     <div class="price-card popular">
       <h4>包月 ⭐</h4>
       <div class="price">¥99<small>/月</small></div>
       <ul><li>30条视频</li><li>1080p无水印</li><li>优先交付</li></ul>
-      <a href="#" class="buy">爱发电订阅</a>
+      <!-- TODO: 替换为真实爱发电链接 -->
+      <a href="#" class="buy" title="前往爱发电订阅">爱发电订阅</a>
     </div>
     <div class="price-card">
       <h4>Token包</h4>
       <div class="price">¥99<small>/100次</small></div>
       <ul><li>不过期</li><li>1080p无水印</li><li>自助渲染</li></ul>
-      <a href="#" class="buy">闲鱼拍下</a>
+      <!-- TODO: 替换为真实闲鱼链接 -->
+      <a href="#" class="buy" title="前往闲鱼店铺购买">闲鱼拍下</a>
     </div>
   </div>
 </div>
 
 <div class="footer">
   © 2026 VideoFast — AI视频生成工具 · video.worldcorner.xyz
+  <br><small style="color:#4a5568">提交即表示同意我们将你的联系方式仅用于订单交付，不会用于其他用途。</small>
 </div>
 
 <div class="toast" id="toast">✅ 订单已提交！</div>
@@ -185,7 +189,8 @@ async function submitOrder() {
     time: new Date().toISOString(),
   };
 
-  // 存入 Supabase（此处用 localStorage 模拟）
+  // 存入 Supabase（生产环境替换 localStorage 为 Supabase 调用）
+  // const { data, error } = await supabase.from('orders').insert([order])
   const orders = JSON.parse(localStorage.getItem('videofast_orders') || '[]');
   orders.push(order);
   localStorage.setItem('videofast_orders', JSON.stringify(orders));
